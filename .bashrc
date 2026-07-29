@@ -27,7 +27,7 @@ alias ls='ls -hN --color=auto --group-directories-first'
 alias man='MANWIDTH=90 man'
 alias e='fwupdmgr refresh && fwupdmgr upgrade'
 alias f='flatpak'
-alias diff="diff --color=auto"
+alias diff='diff --color=auto'
 alias mkd='mkdir -pv'
 alias rmd='rm -r'
 alias rm='rm -vI'
