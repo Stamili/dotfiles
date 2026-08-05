@@ -9,9 +9,9 @@ export PAGER=less
 # Change umask to make directory sharing easier.
 umask 0002
 
-# Ignore duplicates in command history and increase.
+# Ignore duplicates in command history.
 export HISTCONTROL=ignoreboth
-# History size to infinite.
+# Set history size to infinite.
 export HISTSIZE= HISTFILESIZE=
 
 # Add personal bin directories to PATH.
