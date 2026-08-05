@@ -14,9 +14,19 @@ export HISTCONTROL=ignoreboth
 # Set history size to infinite.
 export HISTSIZE= HISTFILESIZE=
 
-# Add personal bin directories to PATH.
-[ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
-[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+# Add personal bin directory to PATH.
+if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+# Add all subdirectories of ~/.local/bin to PATH.
+if [ -d "$HOME/.local/bin" ]; then
+    for dir in "$HOME/.local/bin"/*/; do
+        dir="${dir%/}"
+        if [ -d "$dir" ] && [[ ":$PATH:" != *":$dir:"* ]]; then
+            PATH="$dir:$PATH"
+        fi
+    done
+fi
 export PATH
 
 # Source .bashrc for interactive login shells.
